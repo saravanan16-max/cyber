@@ -387,12 +387,34 @@ function checkL4(key, correct){
 }
 
 /* -----------------------
-   LEVEL 5 — One Question at a Time
+   LEVEL 5 — Three Doors
 ----------------------- */
 function renderLevel5(){
   const host = document.getElementById('level5');
   if(!host) return;
-  if(typeof state.l5Index !== 'number') state.l5Index = 0;
+  // Show doors if no question selected
+  if(typeof state.l5Index !== 'number' || state.l5Index === null) {
+    host.innerHTML = `
+      <h2 class="title">Level 5: <span class="accent">Three Doors — Code Output</span></h2>
+      <div class="card">
+        <div class="title">Choose a Door</div>
+        <div class="doors" style="display:flex;gap:32px;justify-content:center;margin:32px 0;">
+          <button class="door" id="door0" style="width:80px;height:120px;font-size:2rem;">🚪 1</button>
+          <button class="door" id="door1" style="width:80px;height:120px;font-size:2rem;">🚪 2</button>
+          <button class="door" id="door2" style="width:80px;height:120px;font-size:2rem;">🚪 3</button>
+        </div>
+        <div class="small mt12">Pick any door to get a random question!</div>
+      </div>
+    `;
+    for(let d=0;d<3;d++){
+      document.getElementById(`door${d}`).onclick = ()=>{
+        state.l5Index = d;
+        renderLevel5();
+      };
+    }
+    return;
+  }
+  // Show question after door is picked
   const nodes = [
     {key:'js', label:'JavaScript', q:"What is the output of: console.log(2+2)?", ans:"4"},
     {key:'python', label:'Python', q:"What is the output of: print('Cyber'.upper())?", ans:"CYBER"},
@@ -406,20 +428,17 @@ function renderLevel5(){
       <div class="title">${n.label} Challenge</div>
       <div class="small mt12">${n.q}</div>
       <input id="l5answer" class="mt12" placeholder="Enter answer" />
-      <div class="grid c3 mt12">
-        <button class="btn secondary" id="prevQ5" ${i===0?'disabled':''}>Previous</button>
+      <div class="grid c2 mt12">
+        <button class="btn secondary" id="backDoors">Back to Doors</button>
         <button class="btn" id="l5sub">Submit</button>
-        <button class="btn secondary" id="nextQ5" ${i===nodes.length-1?'disabled':''}>Next</button>
       </div>
-      <div id="l5status" class="mt12 small">Question ${i+1} of ${nodes.length} | Cleared: ${state.levelClears[5]} / ${levelMeta[5].total}</div>
+      <div id="l5status" class="mt12 small">Door ${i+1} | Cleared: ${state.levelClears[5]} / ${levelMeta[5].total}</div>
     </div>
   `;
   document.getElementById('l5sub').onclick = ()=>checkL5(n.key, n.ans);
-  document.getElementById('prevQ5').onclick = ()=>{
-    if(i>0){ state.l5Index--; renderLevel5(); }
-  };
-  document.getElementById('nextQ5').onclick = ()=>{
-    if(i<nodes.length-1){ state.l5Index++; renderLevel5(); }
+  document.getElementById('backDoors').onclick = ()=>{
+    state.l5Index = null;
+    renderLevel5();
   };
 }
 function checkL5(key, correct){
