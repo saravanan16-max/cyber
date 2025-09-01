@@ -160,12 +160,7 @@ function renderHomeQR(){
   });
   el.innerHTML = '';
   el.appendChild(wrapper);
-
-  // Auto-fill final line if all fragments are collected
-  if (got.length === QR_FRAGMENTS.length) {
-    const finalInput = document.getElementById('finalLine');
-    if (finalInput) finalInput.value = FINAL_LINE;
-  }
+  // No auto-fill of finalLine input
 }
 function checkFinalLine(){
   const v = (document.getElementById('finalLine').value || '').trim();
