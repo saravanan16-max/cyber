@@ -14,7 +14,6 @@ body{margin:0;background:
 .brand .logo{width:40px;height:40px;border-radius:12px;background:conic-gradient(from 180deg,#0ff,#7cf5ff,#00ffc6,#0ff);filter:saturate(130%);box-shadow:0 0 24px rgba(0,255,198,.35) inset}
 .brand h1{font-family:Orbitron;letter-spacing:.8px;font-size:18px;margin:0}
 .subtitle{color:var(--muted);font-size:12px;margin-top:2px}
-
 .level-list{display:flex;flex-direction:column;gap:8px;margin-top:14px}
 .level{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid rgba(124,245,255,.18);border-radius:14px;background:rgba(13,20,38,.6);cursor:pointer;transition:.25s}
 .level:hover{transform:translateX(3px);border-color:rgba(0,255,198,.45)}
@@ -22,7 +21,6 @@ body{margin:0;background:
 .level .badge{margin-left:auto;font-size:11px;padding:2px 8px;border-radius:999px}
 .badge.ok{background:rgba(110,231,167,.15);color:var(--ok);border:1px solid rgba(110,231,167,.4)}
 .badge.todo{background:rgba(255,255,255,.06);color:var(--muted);border:1px solid rgba(148,163,184,.3)}
-
 .content{padding:28px}
 .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));border:1px solid rgba(124,245,255,.15);border-radius:18px;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.35)}
 .row{display:grid;grid-template-columns:1.25fr .75fr;gap:20px}
@@ -92,7 +90,6 @@ input[type="text"], input[type="password"], textarea{width:100%;padding:14px 16p
   .circle-map { height:120px; }
   .qr { gap:8px; }
   .modal { padding:12px; width:100vw !important; min-width:0 !important; max-width:100vw !important; border-radius:0 !important; box-shadow:none !important; }
-  /* Make question cards full width and more readable */
   .card {
     width: 100vw !important;
     min-width: 0 !important;
@@ -102,7 +99,6 @@ input[type="text"], input[type="password"], textarea{width:100%;padding:14px 16p
     padding: 20px !important;
     margin-bottom: 18px !important;
   }
-  /* Increase font size for questions and answers */
   .title, .small, .story, .cipher, .status {
     font-size: 18px !important;
     line-height: 1.8 !important;
@@ -110,17 +106,14 @@ input[type="text"], input[type="password"], textarea{width:100%;padding:14px 16p
   .emoji {
     font-size: 48px !important;
   }
-  /* Inputs and buttons larger */
   input[type="text"], input[type="password"], textarea, .btn {
     font-size: 18px !important;
     padding: 16px 18px !important;
     border-radius: 16px !important;
   }
-  /* More space between elements */
   .mt8, .mt12, .mt16, .mt20 {
     margin-top: 20px !important;
   }
-  /* Question containers more prominent */
   .buzzer, .basket, .circle {
     padding: 22px !important;
     font-size: 18px !important;
@@ -129,7 +122,6 @@ input[type="text"], input[type="password"], textarea{width:100%;padding:14px 16p
     margin-bottom: 20px !important;
     box-shadow: 0 2px 12px rgba(0,255,198,.08);
   }
-  /* Make modal overlay fill screen */
   .overlay {
     align-items: flex-start !important;
     padding-top: 36px !important;
