@@ -4,17 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Cyber Knights — Quest</title>
-
-  <!-- Google fonts used previously -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
-
-  <!-- Lightweight QR lib (used to generate small QR preview in home and award modal) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
-
-  <!-- App logic -->
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -23,20 +15,17 @@
       <div class="brand">
         <div class="logo"></div>
         <div>
-          <h1>CYBER KNIGHTS</h1>
-          <div class="subtitle">Cyber Knight Club</div>
+          <h1>CYBER KNIGHTS Club</h1>
+          <div class="subtitle">CyberVerteX</div>
         </div>
       </div>
-
       <div class="card">
         <div class="title">Quest Progress</div>
         <div id="progressText" class="small mt8">0 / 5 QR fragments</div>
-
         <div class="grid c2 mt12">
           <button class="btn secondary" id="resetBtn">Reset</button>
           <button class="btn secondary" id="saveBtn">Save</button>
         </div>
-
         <div class="mt12">
           <div class="small">Timer</div>
           <div id="timer" class="title mt8">00:00:00</div>
@@ -46,47 +35,23 @@
           </div>
         </div>
       </div>
-
       <div class="level-list mt16" id="levelList"></div>
-
-
       <div class="footer mt12">Tip: You can jump to a level, but you must solve at least one challenge in that level to unlock the next.</div>
     </aside>
-
     <main class="content">
       <section id="home" class="card">
-        <div class="row">
-          <div>
-            <h2 class="title">Welcome, <span class="accent">Cyber Knights</span> 🛡️</h2>
-            <p class="story">Embark on our 5-level campus mini-CTF. Solve puzzles, collect QR fragments, and stitch them into the final line — enter it below to verify your victory.</p>
-
-            <div class="mt12">
-              <label class="small">Enter Final Line (after collecting fragments):</label>
-              <input id="finalLine" type="text" placeholder="Type the final line here…" />
-              <div class="grid c2 mt8">
-                <button class="btn" id="submitFinal">Submit</button>
-                <button class="btn ghost" id="demoFill">Demo Fill</button>
-              </div>
-              <div id="finalStatus" class="mt12 small"></div>
-            </div>
+        <h2 class="title">Welcome, Cyber Knight!</h2>
+        <div id="homeQR" class="mt16"></div>
+        <div class="mt20">
+          <div class="title">Enter Final Line to Win</div>
+          <input id="finalLine" class="mt12" placeholder="Enter the final line here" />
+          <div class="grid c2 mt12">
+            <button class="btn" id="submitFinal">Submit</button>
+            <button class="btn secondary" id="demoFill">Demo Fill</button>
           </div>
-
-          <div>
-            <div class="card">
-              <div class="title">Game Story</div>
-              <p class="small">Each cleared challenge grants a QR fragment (ciphertext + hint). Combine all 5 fragments to form the final line. Hints are available from coordinators.</p>
-              <div class="grid c2 mt12">
-                <button class="btn" id="startBtn">Start ▶</button>
-                <button class="btn secondary" id="howTo">How to Play</button>
-              </div>
-
-              <div id="homeQR" class="mt16"></div>
-            </div>
-          </div>
+          <div id="finalStatus" class="mt12 small"></div>
         </div>
       </section>
-
-      <!-- Levels -->
       <section id="level1" class="card hidden"></section>
       <section id="level2" class="card hidden"></section>
       <section id="level3" class="card hidden"></section>
@@ -94,8 +59,6 @@
       <section id="level5" class="card hidden"></section>
     </main>
   </div>
-
-  <!-- Modal root & toast -->
   <div id="modalRoot" class="hidden"></div>
   <div id="toast" class="toast hidden"></div>
 </body>
